@@ -9,8 +9,19 @@ PE = "1"
 #BRCM firmware git
 SRCBRANCH ?= "master"
 
+#BRCM firmware git
+SRCREV = "8ce9046f5058fdd2c5271f86ccfc61bc5a248ae3"
+
+#SRC_URI = "${FSL_MIRROR}/firmware-imx-${PV}.bin;fsl-eula=true \
+#           git://git.freescale.com/imx/imx-firmware.git;branch=${SRCBRANCH};destsuffix=${S}/git "
+
 SRC_URI = "${FSL_MIRROR}/firmware-imx-${PV}.bin;fsl-eula=true \
-           git://git.freescale.com/imx/imx-firmware.git;branch=${SRCBRANCH};destsuffix=${S}/git "
+           git://github.com/NXP/imx-firmware.git;protocol=https;branch=${SRCBRANCH};destsuffix=${S}/git "
+
+#SRC_URI = "https://www.nxp.com/lgfiles/NMG/MAD/YOCTO/firmware-imx-5.4.bin \
+#           https://github.com/NXP/imx-firmware;branch=${SRCBRANCH};destsuffix=${S}/git "
+
+
 
 inherit fsl-eula-unpack allarch
 
